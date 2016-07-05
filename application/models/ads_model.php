@@ -19,27 +19,18 @@ class Ads_model extends CI_Model{
 		return $cats;
 	}
 	public function get_allpostads(){
-		$cats = $this->get_assigned_cats();
-		// if(empty($cats) && $this->session->userdata('user_type') != 1)
-		// 	return array();
-		// else{
-						
+		$cats = $this->get_assigned_cats();						
 			$this->db->select('p_add.*,cat.category_id as cat_id, cat.*,pkg_list.pkg_dur_name as pkg_name,pay.*');
 			$this->db->join('catergory as cat','cat.category_id = p_add.category_id','inner');
 			$this->db->join('pkg_duration_list as pkg_list','pkg_list.pkg_dur_id = p_add.package_type','inner');
 			$this->db->join('payments AS pay','pay.product_id = p_add.ad_id','left');
 			$this->db->order_by('p_add.ad_id', 'desc');
-			/*if($this->session->userdata('user_type') != 1){
-				$cats_list = explode(',',$cats->cat_ids);		
-				$this->db->where_in('p_add.category_id',$cats_list);
-			}*/
+			$this->db->group_by("p_add.ad_id");
 			$this->db->where('p_add.payment_status',1);
 			$this->db->from('postad as p_add');
 			$data = $this->db->get()->result();
-			//echo '<pre>';print_r($data[0]);echo '</pre>';
 			 // echo $this->db->last_query();exit;
 			return $data;
-		// }
 	}
 
 	public function get_allpaypending(){
@@ -333,17 +324,10 @@ class Ads_model extends CI_Model{
 			$this->db->join('pkg_duration_list as pkg_list','pkg_list.pkg_dur_id = p_add.package_type','inner');
 			$this->db->join('ad_status as a_status','a_status.id = p_add.ad_status','inner');
 			$this->db->join('catergory as cat','cat.category_id = p_add.category_id','inner');
-			// if($this->session->userdata('user_type') != 1){
-			// 	$cats_list = explode(',',$cats->cat_ids);		
-			// 	$this->db->where_in('p_add.category_id',$cats_list);
-			// }
-			//$this->db->order_by('p_add.updated_on', 'desc');
 			$this->db->from('postad as p_add');
+			$this->db->group_by('p_add.ad_id');
 			$data = $this->db->get()->result();
-			//echo $this->db->last_query();
-			//echo '<pre>';print_r($data);echo '</pre>';exit;
 			return $data;
-		// }
 	}
 	function get_ads($ads_type){
 		$this->db->select('p_add.*,cat.category_id as cat_id, cat.*');
@@ -779,6 +763,7 @@ class Ads_model extends CI_Model{
 			$this->db->where('p_ad.ad_type',$filter_details['user_type']);
 		
 			$this->db->order_by('p_ad.updated_on', 'desc');
+			$this->db->group_by("p_ad.ad_id");
 			$this->db->from('postad as p_ad');
 			$data = $this->db->get()->result();
 			// echo $this->db->last_query();exit;
@@ -791,22 +776,15 @@ class Ads_model extends CI_Model{
 			$u_type = 'business';
 		else $u_type = 'consumer';
 		$cats = $this->get_assigned_cats();
-		// if(empty($cats) && $this->session->userdata('user_type') != 1)
-		// 	return array();
-		// else{		
-			$this->db->select('p_add.*,cat.category_id as cat_id, cat.*,pkg_list.pkg_dur_name as pkg_name,pay.*');
+		$this->db->select('p_add.*,cat.category_id as cat_id, cat.*,pkg_list.pkg_dur_name as pkg_name,pay.*');
 			$this->db->join('catergory as cat','cat.category_id = p_add.category_id','inner');
 			$this->db->join('pkg_duration_list as pkg_list','pkg_list.pkg_dur_id = p_add.package_type','inner');
 			$this->db->join('payments AS pay ','pay.product_id = p_add.ad_id','left');
-			// if($this->session->userdata('user_type') != 1){
-			// 	$cats_list = explode(',',$cats->cat_ids);		
-			// 	$this->db->where_in('p_add.category_id',$cats_list);
-			// }
 			$this->db->where('p_add.ad_type', $u_type);
+			$this->db->group_by("p_add.ad_id");
 			$this->db->from('postad as p_add');
 			$data = $this->db->get()->result();
 			return $data;
-		// }
 	}
 	
 }

@@ -12,6 +12,7 @@
 			$this->db->join('postad as p_ad', "p_ad.ad_id = p.product_id", 'join');
 			$this->db->join('login as l', "l.login_id = p_ad.login_id", 'join');
 			$this->db->order_by('p.payment_date','desc');
+			$this->db->group_by('p_ad.ad_id');
 			$this->db->from('payments p');
 			
 			$transactions = $this->db->get()->result();
