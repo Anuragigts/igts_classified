@@ -127,7 +127,6 @@ $route['hair-dryers-for-sale'] = "pc_hair_dryersview";
 $route['hair-stylers-for-sale'] = "pc_hair_stylersview";
 $route['epilators-for-sale'] = "pc_epilatorsview";
 $route['used-pedometers-for-sale'] = "pc_pedometers";
-$route['monitors-for-sale'] = "pc_monitorsview";
 $route['secondhand-massagers-for-sale'] = "pc_massagersview";
 $route['other-personal-care-stuff-sale'] = "pc_othersview";
 
@@ -316,9 +315,9 @@ $route['hr-and-training-jobs-london'] = "j_human_resource_trainingview";
 $route['company-pa-secretarial-jobs-london'] = "j_pa_secretarialview";
 $route['front-desk-office-help-desk-jobs'] = "j_front_office_help_deskview";
 $route['electronics-electrical-civil-engineering-jobs'] = "j_electronics_electrical_ngineeringview";
-$route['marketing-finance-hr-management-jobs'] = "j_management_jobsview";
-$route['power-engineering-jobs-london-birmingham'] = "j_power_engineeringview";
-$route['miscelleneous-jobs-vacancy-birmingham-london'] = "j_miscelleneousview";
+$route['dentist-jobs-services-london'] = "j_dentistsview";
+$route['petroleum-chemical-engineering-jobs-london'] = "j_petroleum_enggview";
+$route['hospitality-and-staff-nursing-jobs'] = "j_nursing_jobsview";
 
 $route['real-state-construction-jobs'] = "j_constructionview";
 $route['real-state-building-services-jobs'] = "j_building_servicesview";
@@ -328,8 +327,9 @@ $route['office-administrative-jobs'] = "j_office_administrative_jobsview";
 $route['architecture-jobs-london-birmingham'] = "j_architectureview";
 $route['electrician-plumbing-jobs-birmingham'] = "j_electrician_plumbing_toolsview";
 $route['logistics-supply-chain-management-jobs'] = "j_logistics_supply_chain_managementview";
-$route['telesales-marketing-telecalling-jobs-london'] = "j_telesalesview";
-$route['fresher-experience-graduate-Jobs-london'] = "j_graduate_jobsview";
+$route['marketing-finance-hr-management-jobs'] = "j_management_jobsview";
+$route['power-engineering-jobs-london-birmingham'] = "j_power_engineeringview";
+$route['miscelleneous-jobs-vacancy-birmingham-london'] = "j_miscelleneousview";
 
 $route['income-tex-banking-financial-jobs-london'] = "j_financial_servicesview";
 $route['sales-marketing-jobs-vacancies-birmingham'] = "j_sales_marketingview";
@@ -339,9 +339,10 @@ $route['part-full-time-driving-jobs-london'] = "j_drivingview";
 $route['outdoor-indoor-catering-jobs-london'] = "j_catering_jobsview";
 $route['chemical-engineering-jobs-london-birmingham'] = "j_chemical_enggview";
 $route['mechanical-engineering-london-birmingham-wells'] = "j_mechanical_enggview";
-$route['dentist-jobs-services-london'] = "j_dentistsview";
-$route['petroleum-chemical-engineering-jobs-london'] = "j_petroleum_enggview";
-$route['hospitality-and-staff-nursing-jobs'] = "j_nursing_jobsview";
+$route['telesales-marketing-telecalling-jobs-london'] = "j_telesalesview";
+$route['fresher-experience-graduate-Jobs-london'] = "j_graduate_jobsview";
+
+
 
 
 /*--------------------Services Category--------------------*/
