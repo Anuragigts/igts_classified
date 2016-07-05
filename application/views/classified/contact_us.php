@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="<?php echo base_url(); ?>css/innerpagestyles.css" />
 
 <script>
-$(function(){jQuery.validator.addMethod("character",function(e){return/^[a-zA-Z\s]+$/.test(e)}),$("#contact_form").validate({rules:{contact_name:{required:!0,character:!0,minlength:3,maxlength:12},contact_email:{required:!0,email:!0},contact_no:{required:!0,minlength:11},contact_message:{required:!0,minlength:60,maxlength:200}},messages:{contact_name:{required:"Please enter your name",character:"please Enter characters",minlength:"Enter minimum 3 characters",maxlength:"Maximum 12 characters allowed"},contact_no:{required:"Please Enter Mobile No",minlength:"Please Enter 11 digit number"},contact_message:{required:"Please Enter Message",minlength:"Title contains atleast 60 characters",maxlength:"Maximum 200 characters allowed"},contact_email:"Please enter a valid email address"},submitHandler:function(e){return!0}})});
+$(function(){jQuery.validator.addMethod("character",function(e){return/^[a-zA-Z\s]+$/.test(e)}),$("#contact_form").validate({rules:{contact_name:{required:!0,character:!0,minlength:3,maxlength:12},contact_email:{required:!0,email:!0},contact_no:{required:!0,minlength:11},subject:{required: !0,minlength:5,maxlength:30},contact_message:{required:!0,minlength:60,maxlength:200}},messages:{contact_name:{required:"Please enter your name",character:"please Enter characters",minlength:"Enter minimum 3 characters",maxlength:"Maximum 12 characters allowed"},contact_no:{required:"Please Enter Mobile No",minlength:"Please Enter 11 digit number"},subject:{required: "Please Enter Subject",minlength:"Enter minimum 5 characters",maxlength:"Maximum 30 characters allowed"},contact_message:{required:"Please Enter Message",minlength:"Title contains atleast 60 characters",maxlength:"Maximum 200 characters allowed"},contact_email:"Please enter a valid email address"},submitHandler:function(e){return!0}})});
 </script>
 
 </head>
@@ -85,40 +85,51 @@ If you ever have any difficulties or want to ask any questions, our customer ser
 <div class="alert alert-success">
 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>        
 <h4>
-	<?php echo $this->session->flashdata("msg");?>
+<?php echo $this->session->flashdata("msg");?>
 </h4>
 </div>
 <?php } ?>
 <div class="row">
 <div class="col-sm-6 unit">
 <div class="input">
-	<label class="icon-right" for="contact_name">
-		<i class="fa fa-user"></i>
-	</label>
-	<input type="text" id="contact_name" name="contact_name" placeholder="Enter Your Name"  >
+<label class="icon-right" for="contact_name">
+<i class="fa fa-user"></i>
+</label>
+<input type="text" id="contact_name" name="contact_name" placeholder="Enter Your Name"  >
 </div>
 </div>
 <div class="col-sm-6 unit">
 <div class="input">
-	<label class="icon-right" for="contact_email">
-		<i class="fa fa-envelope-o"></i>
-	</label>
-	<input type="email" id="contact_email" name="contact_email" placeholder="Enter Your Email">
+<label class="icon-right" for="contact_email">
+<i class="fa fa-envelope-o"></i>
+</label>
+<input type="email" id="contact_email" name="contact_email" placeholder="Enter Your Email">
 </div>
 </div>
+</div>
+<div class="row">
+<div class="col-sm-6 unit">
+<div class="input">
+<input type="text" id="subject" name="subject" placeholder="Enter Your Subject" value=''>
+</div>
+</div>
+<div class="col-sm-6 unit">
+<div class="input">
+<label class="icon-right" for="contact_no">
+<i class="fa fa-phone"></i>
+</label>
+<input type="text" id="contact_no" name="contact_no" placeholder="Enter Your Mobile Number" maxlength= '11' onkeypress="return isNumber(event)">
+</div>
+</div>
+</div>
+<div class="row">
 <div class="col-sm-12 unit">
 <div class="input">
-	<label class="icon-right" for="contact_no">
-		<i class="fa fa-phone"></i>
-	</label>
-	<input type="text" id="contact_no" name="contact_no" placeholder="Enter Your Mobile Number" maxlength= '11' onkeypress="return isNumber(event)">
+<textarea type="text" id="contact_message" name="contact_message" placeholder="Enter Your Message "></textarea>
 </div>
 </div>
-<div class="col-sm-12 unit">
-<div class="input">
-	<textarea type="text" id="contact_message" name="contact_message" placeholder="Enter Your Message "></textarea>
 </div>
-</div>
+<div class="row">
 <div class="col-sm-12 unit">													
 <input type="submit" id="submit" name='submit' class="btn btn-primary" value="Send">
 </div>

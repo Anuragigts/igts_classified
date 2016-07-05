@@ -18,7 +18,7 @@ class Contact_us extends CI_Controller{
                 if ($this->input->post("submit")) {
                     $ins = $this->classifed_model->contactus_create();
                     if ($ins == 1) {
-                        $this->session->set_flashdata("msg", "Your contact Details Sent Successfully");
+                        $this->session->set_flashdata("msg", "Your Form Submitted Successfully");
                         redirect("contact-us");
                      }
                     else{

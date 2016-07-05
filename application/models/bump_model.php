@@ -15,6 +15,7 @@ class Bump_model extends CI_Model{
 			$this->db->from("postad AS ad");
 			$this->db->where("ad.package_type = 2 || ad.package_type = 5");
 			$this->db->where("ad.`expire_data` >=", date("Y-m-d H:i:s"));
+			$this->db->where("ad.ad_status", 1);
 			$rs = $this->db->get();
 			return $rs->result();
 		}
@@ -24,6 +25,7 @@ class Bump_model extends CI_Model{
 			$this->db->from("postad AS ad");
 			$this->db->where("ad.package_type = 3 || ad.package_type = 6");
 			$this->db->where("ad.`expire_data` >=", date("Y-m-d H:i:s"));
+			$this->db->where("ad.ad_status", 1);
 			$rs = $this->db->get();
 			return $rs->result();
 		}

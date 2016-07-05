@@ -19,11 +19,11 @@ class Bump extends CI_Controller{
         	$g_cnt1 = $this->bump_model->gold_cnt1();//high gold
         	$total_ads = $this->bump_model->total_ads_gold();
         	foreach ($total_ads as $total_ads1) {
-                if ($total_ads1->ad_status == 1) {
+                // if ($total_ads1->ad_status == 1) {
                         $curdate = date_create(date("Y-m-d"));
                         $aprdate = date_create(date("Y-m-d", strtotime($total_ads1->approved_on)));
                         $date_diff = date_diff($aprdate,$curdate);
-                        $date_diff1 = $date_diff->format("%R%a");
+                        $date_diff1 = $date_diff->format("%a");
             		if ($total_ads1->package_type == 2) {
                         if (($date_diff1 <= $g_cnt) && $date_diff1 > 0) {
             				/*services*/
@@ -88,7 +88,7 @@ class Bump extends CI_Controller{
             				}
             			}
             		}
-                }//ad_status end
+                // }//ad_status end
         	}//for loop end
         }//gold end
 
@@ -97,11 +97,11 @@ class Bump extends CI_Controller{
         	$p_cnt1 = $this->bump_model->platinum_cnt1();//high platinum
         	$total_ads = $this->bump_model->total_ads_platinum();
             foreach ($total_ads as $total_ads1) {
-                if ($total_ads1->ad_status == 1) {
+                // if ($total_ads1->ad_status == 1) {
                     $curdate = date_create(date("Y-m-d"));
                     $aprdate = date_create(date("Y-m-d", strtotime($total_ads1->approved_on)));
                     $date_diff = date_diff($aprdate,$curdate);
-                    $date_diff1 = $date_diff->format("%R%a");
+                    $date_diff1 = $date_diff->format("%a");
             		if ($total_ads1->package_type == 3) {
             			if (($date_diff1 <= $p_cnt) && $date_diff1 > 0) {
                             /*services*/
@@ -166,7 +166,7 @@ class Bump extends CI_Controller{
             				}
             			}
             		}//else id end
-                }//adstatus end
+                // }//adstatus end
         	}//for loop end
         }
     }
