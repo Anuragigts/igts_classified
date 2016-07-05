@@ -133,6 +133,11 @@
 									</a>
 								</li>
 								<li>
+									<a class="submenu" href="<?php echo base_url();?>dealidreport">
+										<i class="fa fa-angle-double-right"></i> Deal Id Reports
+									</a>
+								</li>
+								<li>
 									<a class="submenu" href="<?php echo base_url();?>ads/aprovals">
 										<i class="fa fa-angle-double-right"></i> Ad-Approvals
 									</a>

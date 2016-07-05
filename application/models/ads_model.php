@@ -56,6 +56,18 @@ class Ads_model extends CI_Model{
 		// }
 	}
 
+	public function get_alldealidreport(){
+		$cats = $this->get_assigned_cats();
+			$this->db->select('p_add.*,cat.category_id as cat_id, cat.*,pkg_list.pkg_dur_name as pkg_name,a_status.status_name');
+			$this->db->join('catergory as cat','cat.category_id = p_add.category_id','inner');
+			$this->db->join('pkg_duration_list as pkg_list','pkg_list.pkg_dur_id = p_add.package_type','inner');
+			$this->db->join('ad_status as a_status','a_status.id = p_add.ad_status','inner');
+			$this->db->order_by('p_add.ad_id', 'desc');
+			$this->db->from('postad as p_add');
+			$data = $this->db->get()->result();
+			return $data;
+	}
+
 
 	public function get_postad($post_add_id){
 		$cats = $this->get_assigned_cats();
