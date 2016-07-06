@@ -43,7 +43,7 @@ $(".map_show").html('<iframe src = "https://maps.google.com/maps?q='+val1[0]+','
 <script type="text/javascript">
 $(document).ready(function(){$("input:checkbox").change(function(){
 $("form.jforms").submit();})
-$('input:radio').click(function() {$("form.jforms").submit();})
+$('.search_bustype').click(function() {$("form.jforms").submit();})
 $('.dealtitle_sort').change(function() {$("form.jforms").submit();})
 $('.price_sort').change(function() {$("form.jforms").submit();})
 $('.recentdays_sort').change(function() {$("form.jforms").submit();})

@@ -3669,7 +3669,7 @@ class Postad_pets_model extends CI_Model{
         }
 
         public function count_petdogs_view(){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -3677,6 +3677,7 @@ class Postad_pets_model extends CI_Model{
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "1");
             $this->db->where("ad.ad_status", "1");
@@ -3689,13 +3690,14 @@ class Postad_pets_model extends CI_Model{
         }
 
         public function petdogs_view($data){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "1");
             $this->db->where("ad.ad_status", "1");
@@ -3721,13 +3723,14 @@ class Postad_pets_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "1");
             $this->db->where("ad.ad_status", "1");
@@ -3834,12 +3837,13 @@ class Postad_pets_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "1");
             $this->db->where("ad.ad_status", "1");
@@ -3935,7 +3939,7 @@ class Postad_pets_model extends CI_Model{
 
         /*cats view*/
         public function count_petcats_view(){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -3943,6 +3947,7 @@ class Postad_pets_model extends CI_Model{
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "2");
             $this->db->where("ad.ad_status", "1");
@@ -3955,13 +3960,14 @@ class Postad_pets_model extends CI_Model{
         }
 
         public function petcats_view($data){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "2");
             $this->db->where("ad.ad_status", "1");
@@ -3987,13 +3993,14 @@ class Postad_pets_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "2");
             $this->db->where("ad.ad_status", "1");
@@ -4099,12 +4106,13 @@ class Postad_pets_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "2");
             $this->db->where("ad.ad_status", "1");
@@ -4200,7 +4208,7 @@ class Postad_pets_model extends CI_Model{
 
         /*pets fishes*/
         public function count_petfishes_view(){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -4208,6 +4216,7 @@ class Postad_pets_model extends CI_Model{
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "3");
             $this->db->where("ad.ad_status", "1");
@@ -4220,13 +4229,14 @@ class Postad_pets_model extends CI_Model{
         }
 
         public function petfishes_view($data){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "3");
             $this->db->where("ad.ad_status", "1");
@@ -4252,13 +4262,14 @@ class Postad_pets_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "3");
             $this->db->where("ad.ad_status", "1");
@@ -4364,12 +4375,13 @@ class Postad_pets_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "3");
             $this->db->where("ad.ad_status", "1");
@@ -4465,7 +4477,7 @@ class Postad_pets_model extends CI_Model{
 
         /*pets bird*/
         public function count_petbird_view(){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -4473,6 +4485,7 @@ class Postad_pets_model extends CI_Model{
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "4");
             $this->db->where("ad.ad_status", "1");
@@ -4485,13 +4498,14 @@ class Postad_pets_model extends CI_Model{
         }
 
         public function petbird_view($data){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "4");
             $this->db->where("ad.ad_status", "1");
@@ -4517,13 +4531,14 @@ class Postad_pets_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "4");
             $this->db->where("ad.ad_status", "1");
@@ -4629,12 +4644,13 @@ class Postad_pets_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "4");
             $this->db->where("ad.ad_status", "1");
@@ -4730,7 +4746,7 @@ class Postad_pets_model extends CI_Model{
 
         /*pets others*/
         public function count_petothers_view(){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -4738,6 +4754,7 @@ class Postad_pets_model extends CI_Model{
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "8");
             $this->db->where("ad.ad_status", "1");
@@ -4750,13 +4767,14 @@ class Postad_pets_model extends CI_Model{
         }
 
         public function petothers_view($data){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "8");
             $this->db->where("ad.ad_status", "1");
@@ -4782,13 +4800,14 @@ class Postad_pets_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "8");
             $this->db->where("ad.ad_status", "1");
@@ -4894,12 +4913,13 @@ class Postad_pets_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "8");
             $this->db->where("ad.ad_status", "1");
@@ -4995,7 +5015,7 @@ class Postad_pets_model extends CI_Model{
 
          /*pets cobs*/
         public function count_petcobs_view(){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -5003,6 +5023,7 @@ class Postad_pets_model extends CI_Model{
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "5");
             $this->db->where("ad.sub_scat_id", "1");
@@ -5016,13 +5037,14 @@ class Postad_pets_model extends CI_Model{
         }
 
         public function petcobs_view($data){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "5");
             $this->db->where("ad.sub_scat_id", "1");
@@ -5049,13 +5071,14 @@ class Postad_pets_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "5");
             $this->db->where("ad.sub_scat_id", "1");
@@ -5162,12 +5185,13 @@ class Postad_pets_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "5");
             $this->db->where("ad.sub_scat_id", "1");
@@ -5264,7 +5288,7 @@ class Postad_pets_model extends CI_Model{
 
          /*pets donkeys*/
         public function count_donkey_view(){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -5272,6 +5296,7 @@ class Postad_pets_model extends CI_Model{
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "5");
             $this->db->where("ad.sub_scat_id", "2");
@@ -5285,13 +5310,14 @@ class Postad_pets_model extends CI_Model{
         }
 
         public function donkey_view($data){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "5");
             $this->db->where("ad.sub_scat_id", "2");
@@ -5318,13 +5344,14 @@ class Postad_pets_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "5");
             $this->db->where("ad.sub_scat_id", "2");
@@ -5430,12 +5457,13 @@ class Postad_pets_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "5");
             $this->db->where("ad.sub_scat_id", "2");
@@ -5532,7 +5560,7 @@ class Postad_pets_model extends CI_Model{
 
          /*pets horses*/
         public function count_horses_view(){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -5540,6 +5568,7 @@ class Postad_pets_model extends CI_Model{
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "5");
             $this->db->where("ad.sub_scat_id", "3");
@@ -5553,13 +5582,14 @@ class Postad_pets_model extends CI_Model{
         }
 
         public function horses_view($data){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "5");
             $this->db->where("ad.sub_scat_id", "3");
@@ -5586,13 +5616,14 @@ class Postad_pets_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "5");
             $this->db->where("ad.sub_scat_id", "3");
@@ -5699,12 +5730,13 @@ class Postad_pets_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "5");
             $this->db->where("ad.sub_scat_id", "3");
@@ -5801,7 +5833,7 @@ class Postad_pets_model extends CI_Model{
 
          /*pets ponies*/
         public function count_ponies_view(){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -5809,6 +5841,7 @@ class Postad_pets_model extends CI_Model{
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "5");
             $this->db->where("ad.sub_scat_id", "4");
@@ -5822,13 +5855,14 @@ class Postad_pets_model extends CI_Model{
         }
 
         public function ponies_view($data){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "5");
             $this->db->where("ad.sub_scat_id", "4");
@@ -5855,13 +5889,14 @@ class Postad_pets_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "5");
             $this->db->where("ad.sub_scat_id", "4");
@@ -5968,12 +6003,13 @@ class Postad_pets_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "5");
             $this->db->where("ad.sub_scat_id", "4");
@@ -6071,7 +6107,7 @@ class Postad_pets_model extends CI_Model{
 
          /*pets beefs*/
         public function count_beefs_view(){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -6079,6 +6115,7 @@ class Postad_pets_model extends CI_Model{
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "5");
             $this->db->where("ad.sub_scat_id", "5");
@@ -6092,13 +6129,14 @@ class Postad_pets_model extends CI_Model{
         }
 
         public function beefs_view($data){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "5");
             $this->db->where("ad.sub_scat_id", "5");
@@ -6125,13 +6163,14 @@ class Postad_pets_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "5");
             $this->db->where("ad.sub_scat_id", "5");
@@ -6238,12 +6277,13 @@ class Postad_pets_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "5");
             $this->db->where("ad.sub_scat_id", "5");
@@ -6339,7 +6379,7 @@ class Postad_pets_model extends CI_Model{
         }
          /*pets dairy*/
         public function count_dairy_view(){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -6347,6 +6387,7 @@ class Postad_pets_model extends CI_Model{
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "5");
             $this->db->where("ad.sub_scat_id", "6");
@@ -6360,13 +6401,14 @@ class Postad_pets_model extends CI_Model{
         }
 
         public function dairy_view($data){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "5");
             $this->db->where("ad.sub_scat_id", "6");
@@ -6393,13 +6435,14 @@ class Postad_pets_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "5");
             $this->db->where("ad.sub_scat_id", "6");
@@ -6506,12 +6549,13 @@ class Postad_pets_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "5");
             $this->db->where("ad.sub_scat_id", "6");
@@ -6608,7 +6652,7 @@ class Postad_pets_model extends CI_Model{
         
           /*pets big others*/
         public function count_bigother_view(){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -6616,6 +6660,7 @@ class Postad_pets_model extends CI_Model{
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "5");
             $this->db->where("ad.sub_scat_id", "7");
@@ -6629,13 +6674,14 @@ class Postad_pets_model extends CI_Model{
         }
 
         public function bigother_view($data){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "5");
             $this->db->where("ad.sub_scat_id", "7");
@@ -6662,13 +6708,14 @@ class Postad_pets_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "5");
             $this->db->where("ad.sub_scat_id", "7");
@@ -6775,12 +6822,13 @@ class Postad_pets_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "5");
             $this->db->where("ad.sub_scat_id", "7");
@@ -6877,7 +6925,7 @@ class Postad_pets_model extends CI_Model{
 
          /*pets small pigs*/
         public function count_pigs_view(){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -6885,6 +6933,7 @@ class Postad_pets_model extends CI_Model{
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "6");
             $this->db->where("ad.sub_scat_id", "8");
@@ -6898,13 +6947,14 @@ class Postad_pets_model extends CI_Model{
         }
 
         public function pigs_view($data){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "6");
             $this->db->where("ad.sub_scat_id", "8");
@@ -6931,13 +6981,14 @@ class Postad_pets_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "6");
             $this->db->where("ad.sub_scat_id", "8");
@@ -7044,12 +7095,13 @@ class Postad_pets_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "6");
             $this->db->where("ad.sub_scat_id", "8");
@@ -7146,7 +7198,7 @@ class Postad_pets_model extends CI_Model{
 
          /*pets small sheep*/
         public function count_sheep_view(){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -7154,6 +7206,7 @@ class Postad_pets_model extends CI_Model{
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "6");
             $this->db->where("ad.sub_scat_id", "9");
@@ -7167,13 +7220,14 @@ class Postad_pets_model extends CI_Model{
         }
 
         public function sheep_view($data){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "6");
             $this->db->where("ad.sub_scat_id", "9");
@@ -7200,13 +7254,14 @@ class Postad_pets_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "6");
             $this->db->where("ad.sub_scat_id", "9");
@@ -7313,12 +7368,13 @@ class Postad_pets_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "6");
             $this->db->where("ad.sub_scat_id", "9");
@@ -7415,7 +7471,7 @@ class Postad_pets_model extends CI_Model{
 
         /*pets small goats*/
         public function count_goats_view(){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -7423,6 +7479,7 @@ class Postad_pets_model extends CI_Model{
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "6");
             $this->db->where("ad.sub_scat_id", "10");
@@ -7436,13 +7493,14 @@ class Postad_pets_model extends CI_Model{
         }
 
         public function goats_view($data){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "6");
             $this->db->where("ad.sub_scat_id", "10");
@@ -7469,13 +7527,14 @@ class Postad_pets_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "6");
             $this->db->where("ad.sub_scat_id", "10");
@@ -7582,12 +7641,13 @@ class Postad_pets_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "6");
             $this->db->where("ad.sub_scat_id", "10");
@@ -7684,7 +7744,7 @@ class Postad_pets_model extends CI_Model{
 
          /*pets small poultry*/
         public function count_poultry_view(){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -7692,6 +7752,7 @@ class Postad_pets_model extends CI_Model{
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "6");
             $this->db->where("ad.sub_scat_id", "11");
@@ -7705,13 +7766,14 @@ class Postad_pets_model extends CI_Model{
         }
 
         public function poultry_view($data){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "6");
             $this->db->where("ad.sub_scat_id", "11");
@@ -7738,13 +7800,14 @@ class Postad_pets_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "6");
             $this->db->where("ad.sub_scat_id", "11");
@@ -7851,12 +7914,13 @@ class Postad_pets_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "6");
             $this->db->where("ad.sub_scat_id", "11");
@@ -7953,7 +8017,7 @@ class Postad_pets_model extends CI_Model{
 
          /*pets small reptiles*/
         public function count_reptiles_view(){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -7961,6 +8025,7 @@ class Postad_pets_model extends CI_Model{
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "6");
             $this->db->where("ad.sub_scat_id", "12");
@@ -7974,13 +8039,14 @@ class Postad_pets_model extends CI_Model{
         }
 
         public function reptiles_view($data){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "6");
             $this->db->where("ad.sub_scat_id", "12");
@@ -8007,13 +8073,14 @@ class Postad_pets_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "6");
             $this->db->where("ad.sub_scat_id", "12");
@@ -8120,12 +8187,13 @@ class Postad_pets_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "6");
             $this->db->where("ad.sub_scat_id", "12");
@@ -8222,7 +8290,7 @@ class Postad_pets_model extends CI_Model{
 
          /*pets small furry*/
         public function count_furry_view(){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -8230,6 +8298,7 @@ class Postad_pets_model extends CI_Model{
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "6");
             $this->db->where("ad.sub_scat_id", "13");
@@ -8243,13 +8312,14 @@ class Postad_pets_model extends CI_Model{
         }
 
         public function furry_view($data){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "6");
             $this->db->where("ad.sub_scat_id", "13");
@@ -8276,13 +8346,14 @@ class Postad_pets_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "6");
             $this->db->where("ad.sub_scat_id", "13");
@@ -8389,12 +8460,13 @@ class Postad_pets_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "6");
             $this->db->where("ad.sub_scat_id", "13");
@@ -8491,7 +8563,7 @@ class Postad_pets_model extends CI_Model{
 
          /*pets small others*/
         public function count_sother_view(){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -8499,6 +8571,7 @@ class Postad_pets_model extends CI_Model{
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "6");
             $this->db->where("ad.sub_scat_id", "14");
@@ -8512,13 +8585,14 @@ class Postad_pets_model extends CI_Model{
         }
 
         public function sother_view($data){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "6");
             $this->db->where("ad.sub_scat_id", "14");
@@ -8545,13 +8619,14 @@ class Postad_pets_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "6");
             $this->db->where("ad.sub_scat_id", "14");
@@ -8658,12 +8733,13 @@ class Postad_pets_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "6");
             $this->db->where("ad.sub_scat_id", "14");
@@ -8761,7 +8837,7 @@ class Postad_pets_model extends CI_Model{
             /*pets accessories*/
           /*pets foods */
         public function count_foods_view(){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -8769,6 +8845,7 @@ class Postad_pets_model extends CI_Model{
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "7");
             $this->db->where("ad.sub_scat_id", "15");
@@ -8782,13 +8859,14 @@ class Postad_pets_model extends CI_Model{
         }
 
         public function foods_view($data){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "7");
             $this->db->where("ad.sub_scat_id", "15");
@@ -8815,13 +8893,14 @@ class Postad_pets_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "7");
             $this->db->where("ad.sub_scat_id", "15");
@@ -8928,12 +9007,13 @@ class Postad_pets_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "7");
             $this->db->where("ad.sub_scat_id", "15");
@@ -9029,7 +9109,7 @@ class Postad_pets_model extends CI_Model{
         }    
         /*pets toys */
         public function count_toys_view(){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -9037,6 +9117,7 @@ class Postad_pets_model extends CI_Model{
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "7");
             $this->db->where("ad.sub_scat_id", "16");
@@ -9050,13 +9131,14 @@ class Postad_pets_model extends CI_Model{
         }
 
         public function toys_view($data){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "7");
             $this->db->where("ad.sub_scat_id", "16");
@@ -9083,13 +9165,14 @@ class Postad_pets_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "7");
             $this->db->where("ad.sub_scat_id", "16");
@@ -9196,12 +9279,13 @@ class Postad_pets_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "7");
             $this->db->where("ad.sub_scat_id", "16");
@@ -9298,7 +9382,7 @@ class Postad_pets_model extends CI_Model{
 
         /*pets cloths */
         public function count_cloths_view(){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -9306,6 +9390,7 @@ class Postad_pets_model extends CI_Model{
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "7");
             $this->db->where("ad.sub_scat_id", "17");
@@ -9319,13 +9404,14 @@ class Postad_pets_model extends CI_Model{
         }
 
         public function cloths_view($data){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "7");
             $this->db->where("ad.sub_scat_id", "17");
@@ -9352,13 +9438,14 @@ class Postad_pets_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "7");
             $this->db->where("ad.sub_scat_id", "17");
@@ -9465,12 +9552,13 @@ class Postad_pets_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "7");
             $this->db->where("ad.sub_scat_id", "17");
@@ -9567,7 +9655,7 @@ class Postad_pets_model extends CI_Model{
 
          /*pets feeds */
         public function count_feeds_view(){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -9575,6 +9663,7 @@ class Postad_pets_model extends CI_Model{
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "7");
             $this->db->where("ad.sub_scat_id", "18");
@@ -9588,13 +9677,14 @@ class Postad_pets_model extends CI_Model{
         }
 
         public function feeds_view($data){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "7");
             $this->db->where("ad.sub_scat_id", "18");
@@ -9621,13 +9711,14 @@ class Postad_pets_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "7");
             $this->db->where("ad.sub_scat_id", "18");
@@ -9734,12 +9825,13 @@ class Postad_pets_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "7");
             $this->db->where("ad.sub_scat_id", "18");
@@ -9836,7 +9928,7 @@ class Postad_pets_model extends CI_Model{
 
          /*pets beds */
         public function count_beds_view(){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -9844,6 +9936,7 @@ class Postad_pets_model extends CI_Model{
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "7");
             $this->db->where("ad.sub_scat_id", "19");
@@ -9857,13 +9950,14 @@ class Postad_pets_model extends CI_Model{
         }
 
         public function beds_view($data){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "7");
             $this->db->where("ad.sub_scat_id", "19");
@@ -9890,13 +9984,14 @@ class Postad_pets_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "7");
             $this->db->where("ad.sub_scat_id", "19");
@@ -10003,12 +10098,13 @@ class Postad_pets_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "7");
             $this->db->where("ad.sub_scat_id", "19");
@@ -10105,7 +10201,7 @@ class Postad_pets_model extends CI_Model{
 
          /*pets odours */
         public function count_odours_view(){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -10113,6 +10209,7 @@ class Postad_pets_model extends CI_Model{
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "7");
             $this->db->where("ad.sub_scat_id", "20");
@@ -10126,13 +10223,14 @@ class Postad_pets_model extends CI_Model{
         }
 
         public function odours_view($data){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "7");
             $this->db->where("ad.sub_scat_id", "20");
@@ -10159,13 +10257,14 @@ class Postad_pets_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "7");
             $this->db->where("ad.sub_scat_id", "20");
@@ -10272,12 +10371,13 @@ class Postad_pets_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "7");
             $this->db->where("ad.sub_scat_id", "20");
@@ -10374,7 +10474,7 @@ class Postad_pets_model extends CI_Model{
 
         /*pets tanks */
         public function count_tanks_view(){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -10382,6 +10482,7 @@ class Postad_pets_model extends CI_Model{
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "7");
             $this->db->where("ad.sub_scat_id", "21");
@@ -10395,13 +10496,14 @@ class Postad_pets_model extends CI_Model{
         }
 
         public function tanks_view($data){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "7");
             $this->db->where("ad.sub_scat_id", "21");
@@ -10428,13 +10530,14 @@ class Postad_pets_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "7");
             $this->db->where("ad.sub_scat_id", "21");
@@ -10541,12 +10644,13 @@ class Postad_pets_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "7");
             $this->db->where("ad.sub_scat_id", "21");
@@ -10643,7 +10747,7 @@ class Postad_pets_model extends CI_Model{
 
         /*pets marine */
         public function count_marine_view(){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -10651,6 +10755,7 @@ class Postad_pets_model extends CI_Model{
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "7");
             $this->db->where("ad.sub_scat_id", "22");
@@ -10664,13 +10769,14 @@ class Postad_pets_model extends CI_Model{
         }
 
         public function marine_view($data){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "7");
             $this->db->where("ad.sub_scat_id", "22");
@@ -10697,13 +10803,14 @@ class Postad_pets_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "7");
             $this->db->where("ad.sub_scat_id", "22");
@@ -10810,12 +10917,13 @@ class Postad_pets_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "7");
             $this->db->where("ad.sub_scat_id", "22");
@@ -10912,7 +11020,7 @@ class Postad_pets_model extends CI_Model{
 
         /*pets aquarium */
         public function count_aquarium_view(){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -10920,6 +11028,7 @@ class Postad_pets_model extends CI_Model{
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "7");
             $this->db->where("ad.sub_scat_id", "23");
@@ -10933,13 +11042,14 @@ class Postad_pets_model extends CI_Model{
         }
 
         public function aquarium_view($data){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "7");
             $this->db->where("ad.sub_scat_id", "23");
@@ -10966,13 +11076,14 @@ class Postad_pets_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "7");
             $this->db->where("ad.sub_scat_id", "23");
@@ -11079,12 +11190,13 @@ class Postad_pets_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "7");
             $this->db->where("ad.sub_scat_id", "23");
@@ -11181,7 +11293,7 @@ class Postad_pets_model extends CI_Model{
 
          /*pets stuff */
         public function count_stuff_view(){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
@@ -11189,6 +11301,7 @@ class Postad_pets_model extends CI_Model{
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "7");
             $this->db->where("ad.sub_scat_id", "24");
@@ -11202,13 +11315,14 @@ class Postad_pets_model extends CI_Model{
         }
 
         public function stuff_view($data){
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "join");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'join');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
             $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "7");
             $this->db->where("ad.sub_scat_id", "24");
@@ -11235,13 +11349,14 @@ class Postad_pets_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->from("postad AS ad");
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "7");
             $this->db->where("ad.sub_scat_id", "24");
@@ -11348,12 +11463,13 @@ class Postad_pets_model extends CI_Model{
             $recentdays = $this->session->userdata('recentdays');
             $location = $this->session->userdata('location');
             $seller = $this->session->userdata('seller_deals');
-            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg");
+            $this->db->select("ad.*, img.*, COUNT(`img`.`ad_id`) AS img_count, loc.*, lg.*,ud.valid_to AS urg,pdl.*");
             $this->db->select("DATE_FORMAT(STR_TO_DATE(ad.created_on,
             '%d-%m-%Y %H:%i:%s'), '%Y-%m-%d %H:%i:%s') as dtime", FALSE);
             $this->db->join("ad_img AS img", "img.ad_id = ad.ad_id", "left");
             $this->db->join('location as loc', "loc.ad_id = ad.ad_id", 'left');
             $this->db->join('login as lg', "lg.login_id = ad.login_id", 'join');
+            $this->db->join('pkg_duration_list as pdl', "pdl.pkg_dur_id = ad.package_type", 'left');
             $this->db->where("ad.category_id", "5");
             $this->db->where("ad.sub_cat_id", "7");
             $this->db->where("ad.sub_scat_id", "24");

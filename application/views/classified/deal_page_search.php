@@ -269,7 +269,7 @@
 									<p class=""><?php echo substr(strip_tags($sval->deal_desc), 0,70); ?></p>
 								</div>
 								<div class="col-xs-7">
-<a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $sval->deal_tag)); ?>" class="btn_v btn-3 btn-3d descurl fa fa-arrow-right"><span>View Details</span></a>
+<a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->adid; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $sval->deal_tag)); ?>" class="btn_v btn-3 btn-3d descurl fa fa-arrow-right"><span>View Details</span></a>
 </div>
 <div class="col-xs-5 new_label just_add_label">
 <?php if ($sval->bumpcnt == 0) { ?>
@@ -305,7 +305,7 @@
 						<li><i class="fa fa-camera"></i><a href="#"><?php echo $sval->img_count; ?></a></li>
 						<li><i class="fa fa-video-camera"></i><a href="#">1</a></li>
 						<li><i class="fa fa-user"></i><a href="#"><?php echo $personname; ?></a></li>
-						<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($sval->created_on)); ?></span></li>
+						<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($sval->updated_on)); ?></span></li>
 						<li><span>Deal ID : <?php echo $sval->ad_prefix.$sval->adid; ?></span></li>
 					</ul>
 				</div>
@@ -478,7 +478,7 @@
 									<p class=""><?php echo substr(strip_tags($sval->deal_desc), 0,70); ?></p>
 								</div>
 								<div class="col-xs-7">
-<a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $sval->deal_tag)); ?>" class="btn_v btn-3 btn-3d descurl fa fa-arrow-right"><span>View Details</span></a>
+<a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->adid; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $sval->deal_tag)); ?>" class="btn_v btn-3 btn-3d descurl fa fa-arrow-right"><span>View Details</span></a>
 </div>
 <div class="col-xs-5 new_label just_add_label">
 <?php if ($sval->bumpcnt == 0) { ?>
@@ -513,7 +513,7 @@
 						<li><i class="fa fa-camera"></i><a href="#"><?php echo $sval->img_count; ?></a></li>
 						<li><i class="fa fa-video-camera"></i><a href="#">1</a></li>
 						<li><i class="fa fa-user"></i><a href="#"><?php echo $personname; ?></a></li>
-						<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($sval->created_on)); ?></span></li>
+						<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($sval->updated_on)); ?></span></li>
 						<li><span>Deal ID : <?php echo $sval->ad_prefix.$sval->adid; ?></span></li>
 					</ul>
 				</div>
@@ -671,7 +671,7 @@
 									<p class=""><?php echo substr(strip_tags($sval->deal_desc), 0,70); ?></p>
 								</div>
 								<div class="col-xs-7">
-<a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $sval->deal_tag)); ?>" class="btn_v btn-3 btn-3d descurl fa fa-arrow-right"><span>View Details</span></a>
+<a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->adid; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $sval->deal_tag)); ?>" class="btn_v btn-3 btn-3d descurl fa fa-arrow-right"><span>View Details</span></a>
 </div>
 <div class="col-xs-5 new_label just_add_label">
 <?php if ($sval->bumpcnt == 0) { ?>
@@ -707,7 +707,7 @@
 						<li><i class="fa fa-camera"></i><a href="#"><?php echo $sval->img_count; ?></a></li>
 						<li><i class="fa fa-video-camera"></i><a href="#">0</a></li>
 						<li><i class="fa fa-user"></i><a href="#"><?php echo $personname; ?></a></li>
-						<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($sval->created_on)); ?></span></li>
+						<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($sval->updated_on)); ?></span></li>
 						<li><span>Deal ID : <?php echo $sval->ad_prefix.$sval->adid; ?></span></li>
 					</ul>
 				</div>
@@ -861,7 +861,7 @@
 									<p class=""><?php echo substr(strip_tags($sval->deal_desc), 0,70); ?></p>
 								</div>
 								<div class="col-xs-7">
-<a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $sval->deal_tag)); ?>" class="btn_v btn-3 btn-3d descurl fa fa-arrow-right"><span>View Details</span></a>
+<a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->adid; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $sval->deal_tag)); ?>" class="btn_v btn-3 btn-3d descurl fa fa-arrow-right"><span>View Details</span></a>
 </div>
 <div class="col-xs-5 new_label just_add_label">
 <?php if ($sval->bumpcnt == 0) { ?>
@@ -897,7 +897,7 @@
 						<li><i class="fa fa-camera"></i><a href="#"><?php echo $sval->img_count; ?></a></li>
 						<li><i class="fa fa-video-camera"></i><a href="#">0</a></li>
 						<li><i class="fa fa-user"></i><a href="#"><?php echo $personname; ?></a></li>
-						<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($sval->created_on)); ?></span></li>
+						<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($sval->updated_on)); ?></span></li>
 						<li><span>Deal ID : <?php echo $sval->ad_prefix.$sval->adid; ?></span></li>
 					</ul>
 				</div>
@@ -1049,7 +1049,7 @@
 									<p class=""><?php echo substr(strip_tags($sval->deal_desc), 0,70); ?></p>
 								</div>
 								<div class="col-xs-7">
-<a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $sval->deal_tag)); ?>" class="btn_v btn-3 btn-3d descurl fa fa-arrow-right"><span>View Details</span></a>
+<a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->adid; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $sval->deal_tag)); ?>" class="btn_v btn-3 btn-3d descurl fa fa-arrow-right"><span>View Details</span></a>
 </div>
 <div class="col-xs-5 new_label just_add_label">
 <?php if ($sval->bumpcnt == 0) { ?>
@@ -1085,7 +1085,7 @@
 						<li><i class="fa fa-camera"></i><a href="#"><?php echo $sval->img_count; ?></a></li>
 						<li><i class="fa fa-video-camera"></i><a href="#">0</a></li>
 						<li><i class="fa fa-user"></i><a href="#"><?php echo $personname; ?></a></li>
-						<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($sval->created_on)); ?></span></li>
+						<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($sval->updated_on)); ?></span></li>
 						<li><span>Deal ID : <?php echo $sval->ad_prefix.$sval->adid; ?></span></li>
 					</ul>
 				</div>
@@ -1233,7 +1233,7 @@
 									<p class=""><?php echo substr(strip_tags($sval->deal_desc), 0,70); ?> </p>
 								</div>
 								<div class="col-xs-7">
-								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->ad_id; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $sval->deal_tag)); ?>" class="btn_v btn-3 btn-3d descurl fa fa-arrow-right"><span>View Details</span></a>
+								<a href="<?php echo base_url(); ?>description_view/details/<?php echo $sval->adid; ?>/<?php echo str_replace(" ", "-", str_replace("&", "", $sval->deal_tag)); ?>" class="btn_v btn-3 btn-3d descurl fa fa-arrow-right"><span>View Details</span></a>
 								</div>
 								<div class="col-xs-5 new_label just_add_label">
 								<?php if ($sval->bumpcnt == 0) { ?>
@@ -1269,7 +1269,7 @@
 						<li><i class="fa fa-camera"></i><a href="#"><?php echo $sval->img_count; ?></a></li>
 						<li><i class="fa fa-video-camera"></i><a href="#">0</a></li>
 						<li><i class="fa fa-user"></i><a href="#"><?php echo $personname; ?></a></li>
-						<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($sval->created_on)); ?></span></li>
+						<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($sval->updated_on)); ?></span></li>
 						<li><span>Deal ID : <?php echo $sval->ad_prefix.$sval->adid; ?></span></li>
 					</ul>
 				</div>

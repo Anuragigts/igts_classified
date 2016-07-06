@@ -80,7 +80,7 @@ function()
 $("form.jforms").submit();
 }
 )
-$('input:radio').click(function() {
+$('.search_bustype').click(function() {
 $("form.jforms").submit();
 }
 )
