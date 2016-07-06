@@ -130,7 +130,7 @@ ABOUT THE WEBSITE
 
 <p> All the complaints and disputes should be addressed to, and resolved directly with the other party. If the escalation of the matter is required, the dispute can be raised through the payment provider, such as PayPal.</p>
 
-<p> We do not hold any responsibility to provide any warranties or assurances of the Items you purchase (or attempt to purchase) from third party sellers through the Website, or whose website’s link we have provided. Any such claims, warranties and assurances are disclaimed by us. This disclaimer does not affect your statutory rights against the third party seller.</p>
+<p> We do not hold any responsibility to provide any warranties or assurances of the Items you purchase (or attempt to purchase) from third party sellers through the Website, or whose website's link we have provided. Any such claims, warranties and assurances are disclaimed by us. This disclaimer does not affect your statutory rights against the third party seller.</p>
 </div>
 </div>
 </div>
@@ -171,7 +171,7 @@ LICENCE TO USING THE WEBSITE
 <div class="col-md-12">
 <ul class="list-styles">
 <li><i class="fa fa-circle"></i> republish material from our website which including republication on another website;</li>
-<li><i class="fa fa-circle"></i> sell, rent or sub-license material from our website;</li>
+<li><i class="fa fa-circle"></i> sell, rent or sub-licence material from our website;</li>
 <li><i class="fa fa-circle"></i> show any material from our website in public;</li>
 <li><i class="fa fa-circle"></i> exploit material from our website for a commercial purpose; or</li>
 <li><i class="fa fa-circle"></i> redistribute material from our website.</li>
@@ -290,7 +290,7 @@ INTELLECTUAL PROPERTY AND COPYRIGHT
 </div>
 <div id="eight" class="panel-collapse collapse" role="tabpanel" >
 <div class="panel-body">
-<p> The names, logos, images which identify <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong>, the Website or third parties and their products and services are subject to copyright, design rights and trademarks of <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> and/or third parties. No contents of these terms shall be in any way interpreted as conferring by implication, or otherwise any license or right to use any trademark, design right, patent or copyright of the Website, <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong>, or any other third party.</p>
+<p> The names, logos, images which identify <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong>, the Website or third parties and their products and services are subject to copyright, design rights and trademarks of <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> and/or third parties. No contents of these terms shall be in any way interpreted as conferring by implication, or otherwise any licence or right to use any trademark, design right, patent or copyright of the Website, <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong>, or any other third party.</p>
 
 <p> <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> owns the copyright and all other rights in the material on the Website or has the permission of the owner of the rights. The visitors on the website are allowed to download only a single copy of the material on a single computer for own and private viewing/ listening purposes only. Printouts of single pages on the Website may be taken only for the purposes of enabling the person printing the page to retain a copy for their own personal records. Copying or distribution of material on the Website for any commercial or business use is not permitted without our prior written consent. Photography, filming, broadcast, alteration or modification of the pages of the Website is not permitted without our prior written consent, except as may be reasonably necessary to use the Website in good faith. All rights in material on the Website are reserved to <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong>, subject to this paragraph.</p>
 </div>
@@ -326,9 +326,9 @@ YOUR CONTENT : LICENCE
 
 <p>You grant to us a [worldwide, irrevocable, non-exclusive, royalty-free licence] to [use, reproduce, store, adapt, publish, translate and distribute your content in any existing or future media / reproduce, store and publish your content on and in relation to this website and any successor website / reproduce, store and, with your specific consent, publish your content on and in relation to this website]. </p>
 
-<p> You grant to us the right to sub-license the rights licensed under above paragraph.</p>
+<p> You grant to us the right to sub-licence the rights licenced under above paragraph.</p>
 
-<p> You grant to us the right to bring an action for infringement of the rights licensed under above paragraph.</p>
+<p> You grant to us the right to bring an action for infringement of the rights licenced under above paragraph.</p>
 
 <p> You hereby waive all your moral rights in your content to the maximum extent permitted by applicable law; and you warrant and represent that all other moral rights in your content have been waived to the maximum extent permitted by applicable law.</p>
 
@@ -348,7 +348,7 @@ YOUR CONTENT : LICENCE
 <li><i class="fa fa-circle"></i> infringe any copyright, moral right, database right, trade mark right, design right, right in passing off, or other intellectual property right;</li>
 <li><i class="fa fa-circle"></i> infringe any right of confidence, right of privacy or right under data protection legislation;</li>
 <li><i class="fa fa-circle"></i> constitute negligent advice or contain any negligent statement;</li>
-<li><i class="fa fa-circle"></i> constitute an incitement to commit a crime[, instructions for the commission of a crime or the promotion of criminal activity];</li>
+<li><i class="fa fa-circle"></i> constitute an incitement to commit a crime [ instructions for the commission of a crime or the promotion of criminal activity ];</li>
 </ul>
 </div>
 </div>
@@ -365,7 +365,7 @@ YOUR CONTENT : LICENCE
 
 <p> The Content posted by Users will be considered non-confidential and non-proprietary, once it is posted on the Website.</p>
 
-<p> By choosing to post deal on the Website, you provide to us an irrevocable, worldwide, free from royalty and sub-licensable license, along with the right to use, distribute, copy and disclose such Content and Posts for any purpose.</p>
+<p> By choosing to post deal on the Website, you provide to us an irrevocable, worldwide, free from royalty and sub-licensable licence, along with the right to use, distribute, copy and disclose such Content and Posts for any purpose.</p>
 
 <p> The rights (not the obligation) at its sole discretion, to review edit, move, remove or refuse any content that is posted on, or is available on the Website, completely belongs to <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong>. There will be no need for <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> to give any kind of reasons for doing so.</p>
 
@@ -383,7 +383,7 @@ THIRD PARTY WEBSITES
 </div>
 <div id="oneone" class="panel-collapse collapse" role="tabpanel" >
 <div class="panel-body">
-<p> Our website includes hyperlinks to other websites owned and operated by third parties; only under the condition that you do it in a way that does not, in any way, damage our reputation and is fair and legal. Also, your link to the website must not suggest any form of association, approval or endorsement on our part when it’s non-existent.</p>
+<p> Our website includes hyperlinks to other websites owned and operated by third parties; only under the condition that you do it in a way that does not, in any way, damage our reputation and is fair and legal. Also, your link to the website must not suggest any form of association, approval or endorsement on our part when it's non-existent.</p>
 
 <p> The framing of the Website should not be done on any other site of any kind. The rights to draw back permissions of linking will be reserves by <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong>, without any notice. The compliance with our Terms should be taken care of, by the website from which you are linking.</p>
 
@@ -407,7 +407,7 @@ DISCLAIMER
 </div>
 <div id="twotwo" class="panel-collapse collapse" role="tabpanel" >
 <div class="panel-body">
-<p> While there is a constant effort by <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> to ensure that the Website is available for the use 24 hours a day, due to the unpredictable and inherent nature of the Internet, errors, delays and interruptions might occur in the services at any point of time. The Website, accordingly, is provided on an “as-available ” and “as-is” basis, without any kinds of warranties. Any liability arising from any kind of interruption, error or delay in availability is not accepted by us. In case of maintenance, system failure or repairs or for any other reasonable cause, access to the Website may be suspended temporarily without any advance notice. Also, you understand and acknowledge that whilst <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> puts complete effort to ensure that all the information on the Website and any related data/material  to you by 99rightDeals, whether by email or otherwise (“the <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> Materials”) is complete and accurate, it is provided for general information only, is not aimed to address any particular requirement of yours and does not constitute any form of advice to you and cannot be taken as recommendation by <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong>.</p>
+<p> While there is a constant effort by <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> to ensure that the Website is available for the use 24 hours a day, due to the unpredictable and inherent nature of the Internet, errors, delays and interruptions might occur in the services at any point of time. The Website, accordingly, is provided on an "as-available " and "as-is" basis, without any kinds of warranties. Any liability arising from any kind of interruption, error or delay in availability is not accepted by us. In case of maintenance, system failure or repairs or for any other reasonable cause, access to the Website may be suspended temporarily without any advance notice. Also, you understand and acknowledge that whilst <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> puts complete effort to ensure that all the information on the Website and any related data/material  to you by 99rightDeals, whether by email or otherwise ("the <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> Materials") is complete and accurate, it is provided for general information only, is not aimed to address any particular requirement of yours and does not constitute any form of advice to you and cannot be taken as recommendation by <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong>.</p>
 
 <p> You understand and acknowledge that third parties may supply some of the content and <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> will not have to check the completeness and accuracy of the same. <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> shall not accept any kind of liability for any omission or inaccuracy in the information provided on the <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> Materials or on the Website. All of the implied warranties are excluded from these Terms to the extent that they might be excluded as a matter of law.</p>
 
@@ -455,7 +455,7 @@ VARIATION OF THESE TERMS OF USE
 </div>
 <div id="threethree" class="panel-collapse collapse" role="tabpanel" >
 <div class="panel-body">
-<p> These Terms of Use are subject to change from time to time and <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> reserves the rights of doing so. The changes or variations in the Terms of Use become effective immediately after they’re posted on the Website. You will be deemed to accept these variations by continuing to use the Website. It is advisable that you should keep a check on the Website from time to time to stay updated and review the current Terms., if you do not agree to the revised terms and conditions, you must stop using our website.</p>
+<p> These Terms of Use are subject to change from time to time and <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> reserves the rights of doing so. The changes or variations in the Terms of Use become effective immediately after they're posted on the Website. You will be deemed to accept these variations by continuing to use the Website. It is advisable that you should keep a check on the Website from time to time to stay updated and review the current Terms, if you do not agree to the revised terms and conditions, you must stop using our website.</p>
 </div>
 </div>
 </div>
@@ -485,7 +485,7 @@ LAW AND JURISDICTION
 </div>
 <div id="fivefive" class="panel-collapse collapse" role="tabpanel" >
 <div class="panel-body">
-<p> These Terms shall be governed by, and construed in accordance with, English law and the courts of England and Wales shall have exclusive jurisdiction to settle any quarrel or dispute which may arise under, out of, or in connection with these Terms unless <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> shall choose to bring legal proceedings in the courts of principal place of business or of the user’s country where the user resides.</p>
+<p> These Terms shall be governed by, and construed in accordance with, English law and the courts of England and Wales shall have exclusive jurisdiction to settle any quarrel or dispute which may arise under, out of, or in connection with these Terms unless <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> shall choose to bring legal proceedings in the courts of principal place of business or of the user's country where the user resides.</p>
 
 <p> We will not file a copy of these terms and conditions specifically in relation to each user or customer and, if we update these terms and conditions, the version to which you originally agreed will no longer be available on our website. We recommend that you consider saving a copy of these terms and conditions for future reference.</p>
 

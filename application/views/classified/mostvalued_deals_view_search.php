@@ -276,7 +276,7 @@ else{ ?>
 <li><i class="fa fa-camera"></i><a href="#"><?php echo $sval->img_count; ?></a></li>
 <li><i class="fa fa-video-camera"></i><a href="#">0</a></li>
 <li><i class="fa fa-user"></i><a href="#"><?php echo $personname; ?></a></li>
-<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($sval->created_on)); ?></span></li>
+<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($sval->updated_on)); ?></span></li>
 <li><span>Deal ID : <?php echo $sval->ad_prefix.$sval->ad_id; ?></span></li>
 </ul>
 </div>
@@ -466,7 +466,7 @@ else{ ?>
 <li><i class="fa fa-camera"></i><a href="#"><?php echo $sval->img_count; ?></a></li>
 <li><i class="fa fa-video-camera"></i><a href="#">0</a></li>
 <li><i class="fa fa-user"></i><a href="#"><?php echo $personname; ?></a></li>
-<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($sval->created_on)); ?></span></li>
+<li><i class="fa fa-clock-o"></i><span><?php echo date("M d, Y H:i:s", strtotime($sval->updated_on)); ?></span></li>
 <li><span>Deal ID : <?php echo $sval->ad_prefix.$sval->ad_id; ?></span></li>
 </ul>
 </div>
