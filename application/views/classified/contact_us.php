@@ -79,7 +79,7 @@ $(function(){jQuery.validator.addMethod("character",function(e){return/^[a-zA-Z\
 <div class="row">
 <div class="col-md-8 col-sm-7 col-xs-12">
 <p class="lead" align="justify">
-If you ever have any difficulties or want to ask any questions, our customer service team are available on live chat every day of the year from 9am to 5pm.
+If you ever have any difficulties or want to ask any questions, our customer service teams are available on live chat every day of the year from 9am to 5pm.
 </p>
 <?php if($this->session->flashdata("msg") != ""){ ?>
 <div class="alert alert-success">
