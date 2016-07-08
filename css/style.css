@@ -6455,3 +6455,21 @@ radio i:focus {
 	height: 45px;
     width: 90px;
 }
+
+@media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 2){
+	.Mbl_Padding_Bootm{
+		padding-bottom:10px !important;
+	}
+}
+/* iPhone 6 ----------- */
+@media only screen and (min-device-width: 375px) and (max-device-height: 667px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 2){
+	#looking_search{
+		margin-bottom:10px !important;
+	}
+}
+
+@media only screen 
+and (min-device-width : 321px) 
+and (max-device-width : 568px) { 
+		
+}
