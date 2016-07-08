@@ -2,7 +2,7 @@
 <html>
 <head>
 
-<title>Terms & Conditions | 99 Right Deals</title>
+<title>Terms And Conditions | 99 Right Deals</title>
 
 <!-- xxx Head Content xxx -->
 <?php echo $this->load->view('common/head');?> 

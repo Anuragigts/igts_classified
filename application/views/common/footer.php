@@ -136,7 +136,7 @@ function isNumber(e){e=e?e:window.event;var r=e.which?e.which:e.keyCode;return r
 <div class="modal-content">
 <div class="modal-header">
 <button type="button" class="close" data-dismiss="modal">&times;</button>
-<h2>Your feedback of 99 Right Deal</h2>
+<h2>Your feedback of 99 Right Deals</h2>
 </div>
 <div class="modal-body footer_pad_length">
 <div class="fead_back_modal">

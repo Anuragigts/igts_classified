@@ -727,7 +727,7 @@ How can I figure out if the item in the ad is genuine?
 <ul class="list-styles">
 <li><i class="fa fa-circle"></i> The seller should have authentic proofs such as warranty cards, certificates, receipts and serial numbers.</li>
 <li><i class="fa fa-circle"></i> The sellers must have the products in their possession. Beware of sellers who claim that the product is at another location.</li>
-<li><i class="fa fa-circle"></i> •	Critically evaluate the ads for misspelled brand names, or words like 'authentic copy's or 'genuine imitation. The ads should have proper brand logos (if any) and detailed specifications of the product. Confirm the seller about their refund or return policies and whether you can return the item if not genuine.</li>
+<li><i class="fa fa-circle"></i> Critically evaluate the ads for misspelled brand names, or words like 'authentic copy's or 'genuine imitation. The ads should have proper brand logos (if any) and detailed specifications of the product. Confirm the seller about their refund or return policies and whether you can return the item if not genuine.</li>
 </ul>
 </div>
 </div>
@@ -916,7 +916,7 @@ What to do when you forget your password?
 <ul class="list-styles">
 <li><i class="fa fa-circle"></i> Before entering your personal information and passwords, double check the website address.</li>
 <li><i class="fa fa-circle"></i> Never send your personal information like username or password in an email. If you're not completely sure that you're on the original <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> site, open a fresh browser window and type in <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> into the address field.</li>
-<li><i class="fa fa-circle"></i> It is not the best practice to use public computers to do monetary transactions online. The computers at libraries and internet cafés can save your passwords and other information, and have a risk of getting into the wrong hands. To use your credit card and enter personal information, it is quite important for you to use computers that are secured and trusted. </li>
+<li><i class="fa fa-circle"></i> It is not the best practice to use public computers to do monetary transactions online. The computers at libraries and internet cafes can save your passwords and other information, and have a risk of getting into the wrong hands. To use your credit card and enter personal information, it is quite important for you to use computers that are secured and trusted. </li>
 <li><i class="fa fa-circle"></i> Your passwords need to be changed regularly.</li>
 <li><i class="fa fa-circle"></i> The passwords you use for <strong> <a href="http://99rightdeals.com/" target="_blanks">99 RightDeals</a> </strong> and other websites needs to be different from each other.</li>
 </ul>
