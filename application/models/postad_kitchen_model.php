@@ -3676,6 +3676,7 @@ public function kesentials_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -3784,6 +3785,7 @@ public function kesentials_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -3941,6 +3943,7 @@ public function homeesentials_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -4049,6 +4052,7 @@ public function homeesentials_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -4206,6 +4210,7 @@ public function decor_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -4314,6 +4319,7 @@ public function decor_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -4474,6 +4480,7 @@ public function ktools_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -4583,6 +4590,7 @@ public function ktools_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -4743,6 +4751,7 @@ public function kstorage_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -4852,6 +4861,7 @@ public function kstorage_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -5012,6 +5022,7 @@ public function cookware_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -5121,6 +5132,7 @@ public function cookware_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -5281,6 +5293,7 @@ public function bakeware_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -5390,6 +5403,7 @@ public function bakeware_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -5549,6 +5563,7 @@ public function cooktops_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -5658,6 +5673,7 @@ public function cooktops_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -5817,6 +5833,7 @@ public function bbq_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -5926,6 +5943,7 @@ public function bbq_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -6086,6 +6104,7 @@ public function linen_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -6195,6 +6214,7 @@ public function linen_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -6355,6 +6375,7 @@ public function kothers_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -6464,6 +6485,7 @@ public function kothers_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -6623,6 +6645,7 @@ public function hbath_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -6732,6 +6755,7 @@ public function hbath_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -6891,6 +6915,7 @@ public function hbed_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -7000,6 +7025,7 @@ public function hbed_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -7159,6 +7185,7 @@ public function hcarpets_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -7268,6 +7295,7 @@ public function hcarpets_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -7427,6 +7455,7 @@ public function hcleaning_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -7536,6 +7565,7 @@ public function hcleaning_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -7695,6 +7725,7 @@ public function hplumb_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -7804,6 +7835,7 @@ public function hplumb_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -7963,6 +7995,7 @@ public function hwind_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -8072,6 +8105,7 @@ public function hwind_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -8231,6 +8265,7 @@ public function hdoor_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -8340,6 +8375,7 @@ public function hdoor_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -8499,6 +8535,7 @@ public function hgarden_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -8608,6 +8645,7 @@ public function hgarden_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -8767,6 +8805,7 @@ public function hfurniture_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -8876,6 +8915,7 @@ public function hfurniture_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -9035,6 +9075,7 @@ public function hshed_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -9144,6 +9185,7 @@ public function hshed_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -9303,6 +9345,7 @@ public function hplant_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -9412,6 +9455,7 @@ public function hplant_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -9571,6 +9615,7 @@ public function hdining_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -9680,6 +9725,7 @@ public function hdining_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -9839,6 +9885,7 @@ public function hliving_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -9948,6 +9995,7 @@ public function hliving_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -10107,6 +10155,7 @@ public function hkids_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -10216,6 +10265,7 @@ public function hkids_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -10375,6 +10425,7 @@ public function houtdoor_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -10484,6 +10535,7 @@ public function houtdoor_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -10642,6 +10694,7 @@ public function hstudy_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -10751,6 +10804,7 @@ public function hstudy_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -10910,6 +10964,7 @@ public function hothers_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -11019,6 +11074,7 @@ public function hothers_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -11304,6 +11360,7 @@ public function hothers_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -11412,6 +11469,7 @@ public function hothers_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -11699,6 +11757,7 @@ public function hothers_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -11807,6 +11866,7 @@ public function hothers_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -12095,6 +12155,7 @@ public function hothers_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -12203,6 +12264,7 @@ public function hothers_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -12490,6 +12552,7 @@ public function hothers_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -12598,6 +12661,7 @@ public function hothers_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -12885,6 +12949,7 @@ public function hothers_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -12993,6 +13058,7 @@ public function hothers_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -13281,6 +13347,7 @@ public function hothers_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -13389,6 +13456,7 @@ public function hothers_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -13677,6 +13745,7 @@ public function hothers_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -13785,6 +13854,7 @@ public function hothers_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -14071,6 +14141,7 @@ public function hothers_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -14179,6 +14250,7 @@ public function hothers_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -14466,6 +14538,7 @@ public function hothers_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -14574,6 +14647,7 @@ public function hothers_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -14861,6 +14935,7 @@ public function hothers_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -14969,6 +15044,7 @@ public function hothers_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -15256,6 +15332,7 @@ public function hothers_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -15364,6 +15441,7 @@ public function hothers_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -15651,6 +15729,7 @@ public function hothers_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -15759,6 +15838,7 @@ public function hothers_search($data){
             if (in_array("0", $dealurgent)) {
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                             $this->db->where('ad.urgent_package !=', '0');
+                            $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
             }
             else{
                 $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");

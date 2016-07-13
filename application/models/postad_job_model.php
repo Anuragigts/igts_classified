@@ -384,6 +384,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -489,6 +490,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -781,6 +783,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -886,6 +889,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -1178,6 +1182,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -1283,6 +1288,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -1574,6 +1580,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -1679,6 +1686,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -1970,6 +1978,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -2075,6 +2084,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -2366,6 +2376,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -2471,6 +2482,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -2762,6 +2774,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -2867,6 +2880,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -3158,6 +3172,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -3263,6 +3278,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -3554,6 +3570,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -3659,6 +3676,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -3950,6 +3968,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -4055,6 +4074,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -4346,6 +4366,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -4451,6 +4472,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -4742,6 +4764,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -4847,6 +4870,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -5138,6 +5162,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -5243,6 +5268,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -5534,6 +5560,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -5639,6 +5666,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -5930,6 +5958,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -6035,6 +6064,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -6326,6 +6356,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -6431,6 +6462,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -6722,6 +6754,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -6827,6 +6860,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -7119,6 +7153,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -7224,6 +7259,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -7517,6 +7553,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -7622,6 +7659,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -7915,6 +7953,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -8020,6 +8059,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -8313,6 +8353,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -8418,6 +8459,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -8713,6 +8755,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -8818,6 +8861,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -9112,6 +9156,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -9217,6 +9262,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -9510,6 +9556,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -9615,6 +9662,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -9908,6 +9956,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -10013,6 +10062,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -10306,6 +10356,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -10411,6 +10462,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -10704,6 +10756,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -10809,6 +10862,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -11102,6 +11156,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -11207,6 +11262,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -11500,6 +11556,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -11605,6 +11662,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -11899,6 +11957,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -12004,6 +12063,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -12297,6 +12357,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -12402,6 +12463,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -12695,6 +12757,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
@@ -12800,6 +12863,7 @@ class Postad_job_model extends CI_Model{
                 if (in_array("0", $dealurgent)) {
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id AND ud.valid_to >= '".date("Y-m-d H:i:s")."'", "left");
                                 $this->db->where('ad.urgent_package !=', '0');
+                                $this->db->where("ud.valid_to >= '".date("Y-m-d H:i:s")."'");
                 }
                 else{
                     $this->db->join("urgent_details AS ud", "ud.ad_id=ad.ad_id", "left");
