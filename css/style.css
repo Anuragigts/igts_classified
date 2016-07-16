@@ -6373,7 +6373,9 @@ radio i:focus {
 }
 .imp strong{
 	text-transform: uppercase;
-	font-size: 13px;
+	font-size: 17px;
+    font-weight: 550 !important;
+    color: yellow;
 }
 .modal_img img{
 	width:100%;
