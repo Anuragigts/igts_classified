@@ -4353,12 +4353,13 @@ a .login-op-btn:hover {
     right: 0;
 }
 .bus_rec_badge {
-    width: 138px;
+    width: 121px;
     height: 87px;
-    background: transparent url("../img/icons/reco.png") no-repeat;
-    position: absolute;
-    margin-left: 163px;
-    top: 0px;
+    background: transparent url("../img/icons/reco.png") no-repeat scroll center center;
+    padding-top: 5px;
+    position: fixed;
+    margin-left: 165px;
+    top: -26px;
     z-index: 99;
 }
 .significant_badge {
