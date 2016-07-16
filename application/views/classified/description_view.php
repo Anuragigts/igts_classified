@@ -290,7 +290,7 @@
 						<div class="container pad_bott_50">
 							<div class="row">
 								<div class="col-md-10 col-sm-10 col-xs-12 col-md-offset-1 col-sm-offset-1 desc_top_img">
-									<img src="http://99rightdeals.com/img/adds/c_top.jpg" alt="add" title="Adds">
+									<a href='#'><img src="http://99rightdeals.com/img/adds/c_top.jpg" alt="add" title=""></a>
 								</div>
 							</div>
 						</div>
@@ -1017,7 +1017,7 @@
 						<div class="container">
 							<div class="row">
 								<div class="col-md-10 col-sm-10 col-xs-12 col-md-offset-1 col-sm-offset-1 desc_bot_img">
-									<img src="http://99rightdeals.com/img/adds/c_top.jpg" alt="add" title="Adds">
+									<a href='#'><img src="http://99rightdeals.com/img/adds/c_top.jpg" alt="add" title=""></a>
 								</div>
 							</div>
 						</div>
